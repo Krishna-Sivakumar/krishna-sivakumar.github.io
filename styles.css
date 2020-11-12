@@ -34,6 +34,22 @@ body > p {
     font-size: 1rem;
 }
 
+.card {
+    padding: 0.5rem;
+    padding-top: 0;
+    border: 1px solid white;
+    margin: 1rem;
+    border-radius: 5px;
+    width: 15rem;
+    background: transparent;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 @media(prefers-color-scheme: dark) {
     body {
         background-color: #333;
@@ -45,5 +61,9 @@ body > p {
     body {
         background-color: white;
         color: #444;
+    }
+
+    .card {
+        border: 1px solid #444;
     }
 }
