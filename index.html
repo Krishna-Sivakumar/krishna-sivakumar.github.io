@@ -1,37 +1,68 @@
+<!DOCTYPE html>
 <head>
     <html lang="en">
         <title>Krishna Sivakumar</title>
         <link href="styles.css" rel="stylesheet" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script>
+
+            function toggleExperience() {
+                let row = document.getElementById('exp-row');
+                if (row.style.visibility === 'hidden'){
+                    setTimeout(()=>{row.style.display = 'block';}, 100);
+                    row.style.visibility = 'visible';
+                    row.style.opacity = 1;
+                }
+                else{
+                    row.style.visibility = 'hidden';
+                    row.style.opacity = 0;
+                    setTimeout(()=>{row.style.display = 'none';}, 100);
+                }
+            }
+
+            function toggleProjects() {
+                let row = document.getElementById('project-row');
+                if (row.style.visibility === 'hidden'){
+                    setTimeout(()=>{row.style.display = 'flex';}, 100);
+                    row.style.visibility = 'visible';
+                    row.style.opacity = 1;
+                }
+                else{
+                    row.style.visibility = 'hidden';
+                    row.style.opacity = 0;
+                    setTimeout(()=>{row.style.display = 'none';}, 100);
+                }
+            }
+        </script>
     </head>
     <body>
-        <h1><b>A Website.</b></h1>
+        <h1><b>Krishna Sivakumar</b></h1>
+        <p>Something or the other description</p>
         <hr>
-        <p>This is a website too.</p>
-
-        <br/>
-
+        <h2>Navigation</h2>
+        <h2 onclick="toggleExperience()">Experience</h2>
+        <ul id="exp-row">
+            <li><p>Item 1</p><p>Description</p></li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+        <h2 onclick="toggleProjects()">Projects</h2>
+        <div class="row" id="project-row">
+            <div class="card">
+                <a href="#"><h3>Hello!</h3></a>
+                <hr>
+                <p>Hello</p>
+                <button class="tag">python</button>
+                <button class="tag">HTML</button>
+                <button class="tag">javascript</button>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <h2>Social</h2>
         <div class="row">
-            <div class="card">
-                <h5>Hello!</h5>
-                <hr>
-                <p>hello </p>
-            </div>
-            <div class="card">
-                <h5>Hello!</h5>
-                <hr>
-                <p>hello </p>
-            </div>
-            <div class="card">
-                <h5>Hello!</h5>
-                <hr>
-                <p>hello </p>
-            </div>
-            <div class="card">
-                <h5>Hello!</h5>
-                <hr>
-                <p>hello </p>
-            </div>
+            
         </div>
     </body>
 </html>
