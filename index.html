@@ -8,7 +8,7 @@
         <script>
 
             function toggleExperience() {
-                let row = document.getElementById('exp-row');
+                let row = document.getElementById('experience-row');
                 if (row.style.visibility === 'hidden'){
                     setTimeout(()=>{row.style.display = 'block';}, 100);
                     row.style.visibility = 'visible';
@@ -38,17 +38,52 @@
     </head>
     <body>
         <h1><b>Krishna Sivakumar</b></h1>
-        <p>Something or the other description</p>
-        <hr>
-        <h2>Navigation</h2>
-        <h2 onclick="toggleExperience()">Experience</h2>
-        <ul id="exp-row">
-            <li><p>Item 1</p><p>Description</p></li>
-            <li>Item 2</li>
-            <li>Item 3</li>
+        <p><a href="mailto:krishnasivaprogrammer@gmail.com">Email</a> <b>|</b> <a target="blank" href="https://github.com/Krishna-Sivakumar">Github</a> <b>|</b> <a href="#" target="blank">LinkedIn</a></p>
+        <p>Something or the other description.</p>
+        <p>Check out my blog <a href="#">here</a>.</p>
+        <h2>Experience<small style="cursor: pointer;" onclick="toggleExperience()">[&#8595;]</small></h2>
+        <ul id="experience-row" style="visibility: hidden; opacity: 0; display: none;">
+            <li>
+                <svg height="20" width = "20" style="margin-left: -1.5em; margin-top: 0.2em">
+                    <circle class="inner" cx="10" cy="10" r="3.5" stroke="white" stroke-width="1.5" fill="white" />
+                    <circle cx="10" cy="10" r="9" stroke="white" stroke-width="1.5" fill="transparent" />
+                </svg>
+                <h2>Exp 3</h2>
+                <p><i><small>2019 - 2020</small></i></p>
+                <p>This is a good looking website!</p>
+            </li>
+            <li>
+                <svg height="10" width = "10" style="margin-left: -1.1em; margin-bottom: 1px; padding: 0">
+                    <circle cx="4" cy="4" r="3.5" stroke="white" stroke-width="1.5" fill="transparent" />
+                </svg>
+                <h2>Exp 2</h2>
+                <p><i><small>2018 - 2019</small></i></p>
+                <p>Description</p>
+            </li>
+            <li>
+                <svg height="10" width = "10" style="margin-left: -1.1em; margin-bottom: 1px; padding: 0">
+                    <circle cx="4" cy="4" r="3.5" stroke="white" stroke-width="1.5" fill="transparent" />
+                </svg>
+                <h2>Exp 1</h2>
+                <p><i><small>2017 - 2018</small></i></p>
+                <p>Description</p>
+            </li>
+            <li class="tail">
+                <svg height="10" width = "10" style="margin-left: -1.1em; margin-bottom: 1px; padding: 0">
+                    <circle class="tail" cx="4" cy="4" r="3.5" stroke="white" stroke-width="1.5" fill="white" />
+                </svg>
+            </li>
         </ul>
-        <h2 onclick="toggleProjects()">Projects</h2>
-        <div class="row" id="project-row">
+        <h2>Projects<small style="cursor: pointer;" onclick="toggleProjects()">[&#8595;]</small></h2>
+        <div class="row" id="project-row" style="visibility: hidden; opacity: 0; display: none;">
+            <div class="card">
+                <a href="#"><h3>Hello!</h3></a>
+                <hr>
+                <p>Hello</p>
+                <button class="tag">python</button>
+                <button class="tag">HTML</button>
+                <button class="tag">javascript</button>
+            </div>
             <div class="card">
                 <a href="#"><h3>Hello!</h3></a>
                 <hr>
