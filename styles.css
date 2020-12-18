@@ -14,6 +14,11 @@ p {
     font-size: 1rem;
 }
 
+a {
+    color: rgb(94, 149, 252);
+    text-decoration: none;
+}
+
 
 @keyframes fadein {
     from {opacity: 0}
@@ -23,13 +28,15 @@ p {
 /*For Phones*/
 @media(max-width: 680px) {
     body {
-        max-width: 18rem;
+        max-width: 20rem;
     }
 }
 
 /*For Tablets*/
-@media(max-width: 1024px) and (min-width: 681px){
-
+@media(max-width: 809px) and (min-width: 681px){
+    body {
+        max-width: 31rem;
+    }
 }
 
 .card {
@@ -65,38 +72,66 @@ p {
     flex-wrap: wrap;
 }
 
-ul {
+#experience-row {
     list-style: none;
 }
 
-li {
+#experience-row > li {
     position: relative;
     margin: 0;
     padding-bottom: 1em;
     padding-left: 20px;
 }
 
-li:before {
+#experience-row > li:before {
     content: '';
     width: 2px;
     background-color: white;
     position: absolute;
     top: 10px;
-    bottom: 0px;
+    bottom: -3px;
     left: 5px;
+}
+
+#experience-row > li.tail::before {
+    content: none;
+}
+
+#experience-row > li > * {
+    margin-left: 1em;
+}
+
+#experience-row > li h2 {
+    margin-top: -1em;
 }
 
 @media(prefers-color-scheme: dark) {
     body {
-        background-color: #333;
+        background-color: #111;
         color: white;
     }
 }
 
 @media(prefers-color-scheme: light) {
     body {
-        background-color: white;
-        color: #333;
+        background-color: beige;
+        color: #111;
+    }
+
+    circle {
+        stroke: #333;
+    }
+
+    circle.inner {
+        fill: #333;
+    }
+
+    circle.tail {
+        fill: #333;
+    }
+
+    #experience-row > li:before {
+        background-color: #333;
     }
 
     .card {
