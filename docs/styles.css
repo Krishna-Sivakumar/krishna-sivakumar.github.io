@@ -1,12 +1,67 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
 
+[data-theme="light"] {
+  --background-color: beige;
+  --text-color: #111;
+  --hr-color: #555;
+  --exp-fill: #333;
+  --tag-color: #444;
+  --card-shadow: rgb(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] {
+  --background-color: #113;
+  --text-color: white;
+  --hr-color: #5f6368;
+  --exp-fill: white;
+  --tag-color: white;
+  --card-shadow: #5f6368;
+}
+
 body {
   margin: 3.5rem auto;
   max-width: 45rem;
   font-family: "Courier New", Courier, monospace;
   animation: fadein 0.5s;
   height: fit-content;
+
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
+
+/* Dark/Light Themeing  */
+
+hr {
+  border: 1px solid var(--hr-color);
+}
+
+circle {
+  stroke: var(--exp-fill);
+}
+
+circle.inner, circle.tail {
+  fill: var(--exp-fill);
+}
+
+#color-switch {
+  position: fixed;
+  top: 0.5em;
+  right: 0.5em;
+  text-decoration: none;
+
+  font-size: 2em;
+  text-shadow: 2px 2px 0px var(--card-shadow);
+  border-radius: 100%;
+
+  user-select: none;
+  cursor: pointer;
+}
+
+#color-switch:active {
+  text-shadow: 0 0 1px var(--card-shadow);
+}
+
+/* End Dark/Light Themeing */
 
 h1 {
   font-size: 2.5rem;
@@ -54,7 +109,7 @@ a {
   height: fit-content;
   background: transparent;
 
-  box-shadow: 2px 2px 0px 0px #5f6368;
+  box-shadow: 2px 2px 0px 0px var(--card-shadow);
 }
 
 .card a {
@@ -65,7 +120,7 @@ a {
 .tag {
   border: 1px solid #5f6368;
   border-radius: 10%;
-  color: white;
+  color: var(--tag-color);
   background: none;
   font-family: "Courier New", Courier, monospace;
   text-transform: uppercase;
@@ -105,7 +160,7 @@ a {
 #experience-row > li:before {
   content: "";
   width: 2px;
-  background-color: white;
+  background-color: var(--exp-fill);
   position: absolute;
   top: 10px;
   bottom: -3px;
@@ -127,52 +182,4 @@ a {
 #experience-row-div {
     margin-left: 2em;
     margin-bottom: -1em;
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #113;
-    color: white;
-  }
-
-  hr {
-    border: 1px solid #5f6368;
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  body {
-    background-color: beige;
-    color: #111;
-  }
-
-  circle {
-    stroke: #333;
-  }
-
-  circle.inner {
-    fill: #333;
-  }
-
-  circle.tail {
-    fill: #333;
-  }
-
-  hr {
-    border: 0.5px solid #555;
-  }
-
-  #experience-row > li:before {
-    background-color: #333;
-  }
-
-  .card {
-    border: 1px solid #444;
-    box-shadow: 3px 3px 0px 1px rgb(0, 0, 0, 0.3);
-  }
-
-  .tag {
-    border: 1px solid #444;
-    color: #444;
-  }
 }
