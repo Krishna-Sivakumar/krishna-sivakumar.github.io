@@ -7,10 +7,10 @@ function Card(props) {
         <div key={project.name} className="card">
             {
                 project.homepage ?
-                    <button className="tag preview" onClick={() => alert(project.homepage)}>preview ⇗</button>
+                    <button className="tag preview" onClick={() => window.open(project.homepage)}>preview ⇗</button>
                     : null
             }
-            <a href={project.html_url} rel="noreferrer" target="_blank"><h3>{project.name}</h3></a>
+            <h3><a href={project.html_url} rel="noreferrer" target="_blank">{project.name}</a></h3>
             <hr />
             <p>{project.description}</p>
             <button className="tag">{project.language}</button>
@@ -43,12 +43,22 @@ function App() {
 
     const [projectIsOpen, setProjectIsOpen] = useState(false);
     const [projects, setProjects] = useState([]);
+    const [tagList, setTagList] = useState(new Set());
 
     let age = new Date(Date.now() - (new Date("2001-11-04")));
     age = age.getFullYear() - 1970;
 
     useEffect(() => {
-        getData(setProjects);
+        getData(data => {
+            setProjects(data);
+            setTagList(
+                data.reduce((acc, item) => {
+                    acc.add(item.language.toLowerCase());
+                    return acc;
+                }, new Set())
+            );
+            console.log(tagList);
+        });
     }, [])
 
     return (
@@ -61,13 +71,19 @@ function App() {
                 <b> | </b>
                 <a href="https://www.linkedin.com/in/krishna-sivakumar-723b621a3" target="blank">LinkedIn</a>
                 <b> | </b>
-                <a href="#" target="blank">Martial Arts</a>
+                <a href="https://glow-puzzled-jaw.glitch.me/" target="blank">Martial Arts</a>
             </p>
             <p>Hey! I'm Krishna Sivakumar, a {age} year old student who loves to code and talk about it!</p>
             <p>I use Python for everyday scripts and projects, and have a few websites to my name.</p >
             <p>I've been using <i>a lot</i> of javascript, css and html too, and I've been trying to learn a few more languages recently :) </p>
 
-            <h2>
+            <br />
+
+            <h2
+                style={{
+                    marginTop: "-0.1em"
+                }}
+            >
                 Projects
                 <small
                     style={{ cursor: "pointer" }}
@@ -76,8 +92,12 @@ function App() {
                     [&#8595;]
                 </small>
             </h2>
-            <div className="row collapsible" data-collapsed={projectIsOpen ? "" : "collapsed"}>
-                {projects.map(project => <Card project={project} />)}
+
+            <div className="collapsible" data-collapsed={projectIsOpen ? "" : "collapsed"}>
+                <p>Tags: {Array.from(tagList).map(tag => <button className="tag">{tag}</button>)}</p>
+                <div className="row">
+                    {projects.map(project => <Card project={project} />)}
+                </div>
             </div>
         </div >
     );
