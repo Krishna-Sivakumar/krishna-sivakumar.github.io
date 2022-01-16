@@ -50,14 +50,20 @@ function App() {
 
     useEffect(() => {
         getData(data => {
-            setProjects(data);
+            setProjects([{
+                name: "Martial Arts",
+                homepage: "https://glow-puzzled-jaw.glitch.me/",
+                html_url: "https://glow-puzzled-jaw.glitch.me/",
+                description: "A small fighting game demo built for WD101, with html canvases.",
+                language: "html",
+                topics: []
+            }, ...data]);
             setTagList(
                 data.reduce((acc, item) => {
                     acc.add(item.language.toLowerCase());
                     return acc;
                 }, new Set())
             );
-            console.log(tagList);
         });
     }, [])
 
@@ -70,8 +76,6 @@ function App() {
                 <a target="blank" href="https://github.com/Krishna-Sivakumar">Github</a>
                 <b> | </b>
                 <a href="https://www.linkedin.com/in/krishna-sivakumar-723b621a3" target="blank">LinkedIn</a>
-                <b> | </b>
-                <a href="https://glow-puzzled-jaw.glitch.me/" target="blank">Martial Arts</a>
             </p>
             <p>Hey! I'm Krishna Sivakumar, a {age} year old student who loves to code and talk about it!</p>
             <p>I use Python for everyday scripts and projects, and have a few websites to my name.</p >
