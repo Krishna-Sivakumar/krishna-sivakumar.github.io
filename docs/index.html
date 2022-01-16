@@ -13,31 +13,19 @@
         <script>
 
             function toggleExperience() {
-                let row = document.getElementById('experience-row-div');
-                if (row.style.visibility === 'hidden'){
-                    setTimeout(()=>{row.style.display = 'block';}, 100);
-                    row.style.visibility = 'visible';
-                    row.style.opacity = 1;
-                }
-                else{
-                    row.style.visibility = 'hidden';
-                    row.style.opacity = 0;
-                    setTimeout(()=>{row.style.display = 'none';}, 100);
-                }
+                let experienceRow = document.getElementById('experience-row-div');
+                experienceRow.setAttribute(
+                    "data-collapsed",
+                    (experienceRow.getAttribute("data-collapsed") == "collapsed")? "" : "collapsed"
+                );
             }
 
             function toggleProjects() {
-                let row = document.getElementById('project-row');
-                if (row.style.visibility === 'hidden'){
-                    setTimeout(()=>{row.style.display = 'flex';}, 100);
-                    row.style.visibility = 'visible';
-                    row.style.opacity = 1;
-                }
-                else{
-                    row.style.visibility = 'hidden';
-                    row.style.opacity = 0;
-                    setTimeout(()=>{row.style.display = 'none';}, 100);
-                }
+                let projectRow = document.getElementById('project-row');
+                projectRow.setAttribute(
+                    "data-collapsed",
+                    (projectRow.getAttribute("data-collapsed") === "collapsed")? "" : "collapsed" 
+                );
             }
         </script>
     </head>
@@ -48,7 +36,7 @@
         <p>I use Python for everyday scripts and projects, and have a few websites to my name.</p>
         <p>I'm also picking up some languages in the mean time.</p>
         <h2>Experience<small style="cursor: pointer;" onclick="toggleExperience()">[&#8595;]</small></h2>
-        <div id="experience-row-div" style="visibility: hidden; opacity: 0; display: none;">
+        <div class="collapsible" id="experience-row-div" data-collapsed="collapsed">
             <h3><u>Work Experience</u></h3>
             <p>I don't have any work experience yet. Feel free to contact me to give an opportunity!</p>
             <br>
@@ -71,7 +59,7 @@
             </ul>
         </div>
         <noscript>
-            <div id="experience-row-div">
+            <div class="collapsible" id="experience-row-div">
                 <h3><u>Work Experience</u></h3>
                 <p>I don't have any work experience yet. Feel free to contact me to give an opportunity!</p>
                 <h3><u>Academic History</u></h3>
@@ -94,7 +82,7 @@
             </div>
         </noscript>
         <h2>Projects<small style="cursor: pointer;" onclick="toggleProjects()">[&#8595;]</small></h2>
-        <div class="row" id="project-row" style="visibility: hidden; opacity: 0; display: none;">
+        <div class="row collapsible" id="project-row" data-collapsed="collapsed">
             <div class="card">
                 <a href="https://github.com/Krishna-Sivakumar/krishna-sivakumar.github.io" target="blank"><h3>This Website</h3></a>
                 <hr>
@@ -141,7 +129,7 @@
             </div>
         </div>
         <noscript>
-            <div class="row" id="project-row">
+            <div class="row collapsible" id="project-row">
                 <div class="card">
                     <a href="https://github.com/Krishna-Sivakumar/krishna-sivakumar.github.io" target="blank"><h3>This Website</h3></a>
                     <hr>

@@ -80,6 +80,17 @@ a {
   flex-wrap: wrap;
 }
 
+.collapsible {
+  transition: transform 0.1s ease 0s;
+  transform-origin: top;
+}
+
+.collapsible[data-collapsed="collapsed"] {
+  transform: scaleY(0);
+  transform-origin: top;
+  max-height: 0;
+}
+
 #experience-row {
   list-style: none;
 }
@@ -115,6 +126,7 @@ a {
 
 #experience-row-div {
     margin-left: 2em;
+    margin-bottom: -1em;
 }
 
 @media (prefers-color-scheme: dark) {
