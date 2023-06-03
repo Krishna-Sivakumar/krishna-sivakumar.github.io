@@ -43,7 +43,8 @@ circle {
   stroke: var(--exp-fill);
 }
 
-circle.inner, circle.tail {
+circle.inner,
+circle.tail {
   fill: var(--exp-fill);
 }
 
@@ -84,6 +85,7 @@ a {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -134,6 +136,20 @@ a {
   padding: 0.2rem;
 }
 
+.tag_active {
+  border: 1px solid #5f6368;
+  border-radius: 3px;
+  color: var(--background-color);
+  font-weight: bold;
+  background: #5f6368;
+  font-family: "Courier New", Courier, monospace;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  margin-top: 0.5em;
+  margin-left: 0.5em;
+  padding: 0.2rem;
+}
+
 .preview {
   float: right;
   cursor: pointer;
@@ -160,14 +176,14 @@ a {
   list-style: none;
 }
 
-#experience-row > li {
+#experience-row>li {
   position: relative;
   margin: 0;
   padding-bottom: 1em;
   padding-left: 20px;
 }
 
-#experience-row > li:before {
+#experience-row>li:before {
   content: "";
   width: 2px;
   background-color: var(--exp-fill);
@@ -177,19 +193,19 @@ a {
   left: 5px;
 }
 
-#experience-row > li.tail::before {
+#experience-row>li.tail::before {
   content: none;
 }
 
-#experience-row > li > * {
+#experience-row>li>* {
   margin-left: 1em;
 }
 
-#experience-row > li h2 {
+#experience-row>li h2 {
   margin-top: -1em;
 }
 
 #experience-row-div {
-    margin-left: 2em;
-    margin-bottom: -1em;
+  margin-left: 2em;
+  margin-bottom: -1em;
 }
