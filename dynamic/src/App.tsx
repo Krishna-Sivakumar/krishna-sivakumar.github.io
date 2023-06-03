@@ -48,11 +48,33 @@ function ProjectList(
   props: { tagList: Set<string>, projects: GithubData[] }
 ) {
   const { tagList, projects } = props;
+  const [filters, setFilters] = useState<string[]>(Array.from(tagList.values()));
+
+  const toggleFilter = (f: string) => {
+    console.log(filters, f, filters.indexOf(f))
+    if (filters.indexOf(f) > -1)
+      setFilters([...filters.filter(item => item !== f)])
+    else
+      setFilters([...filters, f])
+  }
+
   return (
     <>
-      <p>Tags: {Array.from(tagList).map(tag => <button key={tag} className="tag">{tag}</button>)}</p>
+      <p>
+        Tags: {
+          Array.from(tagList).map(
+            tag => <button
+              key={tag}
+              className={(filters.indexOf(tag) > -1) ? "tag_active" : "tag"}
+              onClick={() => toggleFilter(tag)}
+            >{tag}</button>
+          )
+        }
+        |
+        <button className="tag" onClick={() => { setFilters([]) }}>clear tags</button>
+      </p>
       <div className="row">
-        {projects.map((project: GithubData) => <Card key={project.name} {...project} />)}
+        {projects.filter(project => filters.indexOf(project.language.toLowerCase()) > -1).map((project: GithubData) => <Card key={project.name} {...project} />)}
       </div>
     </>
   )
@@ -91,9 +113,8 @@ function App() {
         <a href="https://www.linkedin.com/in/krishna-sivakumar-723b621a3" target="blank">LinkedIn</a>
       </p>
       <p>Hey! I'm Krishna Sivakumar, a {age} year old student who loves to code and talk about it!</p>
-      <p>I use Python for everyday scripts and projects, and have a few websites to my name.</p >
-      <p>I've been using <i>a lot</i> of javascript, css and html too, and I've been trying to learn a few more languages recently :) </p>
-
+      <p>I mainly use Python for everyday scripts and quick projects, and have a few websites to my name.</p>
+      <p>I'm interested in systems software, distributed systems and web development, but I have the most experience with the last one :P</p>
       <br />
 
       <h2
@@ -101,7 +122,7 @@ function App() {
           marginTop: "-0.1em"
         }}
       >
-        Projects
+        Projects (stuff I've made)
         <small
           style={{ cursor: "pointer" }}
           onClick={() => { setProjectIsOpen(!projectIsOpen) }}
