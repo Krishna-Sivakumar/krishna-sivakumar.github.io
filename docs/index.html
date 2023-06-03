@@ -1,1 +1,45 @@
-<!doctype html><head><html lang="en"><title>Krishna Sivakumar</title><meta name="title" content="Krishna Sivakumar"><meta name="viewport" content="width=device-width,height=device-height,initial-scale=1"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="description" content="I'm a student who loves to code and talk about it! This is my portfolio."><meta name="google-site-verification" content="BO6EKHcIj4aJd8TlMzlaOz_tilnGTxLw-KBCrX0O4uI"/><link href="styles.css" rel="stylesheet"/><link rel="icon" type="image/x-icon" href="favicon.ico"><script>document.onreadystatechange=function(e){let t=document.getElementsByTagName("body")[0];const o=window.sessionStorage.getItem("theme");null==o?window.sessionStorage.setItem("theme","dark"):t.setAttribute("data-theme",o)},window.onload=()=>{document.getElementById("color-switch").addEventListener("click",(()=>{let e=document.getElementsByTagName("body")[0];const t=window.sessionStorage.getItem("theme");null==t?(e.setAttribute("data-theme","light"),window.sessionStorage.setItem("theme","light")):(e.setAttribute("data-theme","dark"===t?"light":"dark"),window.sessionStorage.setItem("theme","dark"===t?"light":"dark"))}))}</script><script defer="defer" src="/static/js/main.5ddcf95b.js"></script><link href="/static/css/main.aa7fe67e.css" rel="stylesheet"></head><body data-theme="dark"><noscript><h3>You need to enable javascript to view this site.</h3></noscript><div id="root"></div><a id="color-switch">🌗</a></body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + React + TS</title>
+  <script>
+
+    document.onreadystatechange = function (e) {
+      let body = document.getElementsByTagName("body")[0];
+      const theme = window.sessionStorage.getItem("theme");
+      if (theme == null) {
+        window.sessionStorage.setItem("theme", "dark");
+      } else {
+        body.setAttribute("data-theme", theme);
+      }
+    };
+
+    window.onload = () => {
+      document.getElementById("color-switch").addEventListener("click", () => {
+        let body = document.getElementsByTagName("body")[0];
+        const theme = window.sessionStorage.getItem("theme");
+        if (theme == null) {
+          body.setAttribute("data-theme", "light");
+          window.sessionStorage.setItem("theme", "light");
+        } else {
+          body.setAttribute("data-theme", (theme === "dark") ? "light" : "dark");
+          window.sessionStorage.setItem("theme", (theme === "dark") ? "light" : "dark");
+        }
+      })
+    }
+  </script>
+  <script type="module" crossorigin src="/assets/index-63615552.js"></script>
+  <link rel="stylesheet" href="/assets/index-164b5a11.css">
+</head>
+
+<body>
+  <div id="root"></div>
+  
+  <a id="color-switch">🌗</a>
+</body>
+
+</html>
