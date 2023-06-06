@@ -56,7 +56,6 @@ function ProjectList(
   }, [tagList])
 
   const toggleFilter = (f: string) => {
-    console.log(filters, f, filters.indexOf(f))
     if (filters.indexOf(f) > -1)
       setFilters([...filters.filter(item => item !== f)])
     else
