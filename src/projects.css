@@ -1,0 +1,70 @@
+.projects {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.projects_header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.projects_header_popup {
+    font-size: 0.75rem;
+}
+
+.card {
+    padding: 0.5rem;
+    padding-top: 0;
+    border: 1px solid #5f6368;
+    height: fit-content;
+    margin: 1rem;
+    border-radius: 5px;
+    background: transparent;
+
+    box-shadow: 2px 2px 0px 0px var(--card-shadow);
+}
+
+.card a {
+    color: rgb(94, 149, 252);
+    text-decoration: none;
+}
+
+.tag {
+    border: 1px solid #5f6368;
+    border-radius: 3px;
+    color: var(--tag-color);
+    background: none;
+    font-family: "Courier New", Courier, monospace;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+    padding: 0.2rem;
+}
+
+.tag_active {
+    border: 1px solid #1f4c32;
+    border-radius: 3px;
+    color: var(--tag-active-color);
+    font-weight: bold;
+    background: #4ece85;
+    font-family: "Courier New", Courier, monospace;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+    padding: 0.2rem;
+}
+
+.preview {
+    float: right;
+    cursor: pointer;
+}
+
+@media (max-width: 680px) {
+    .projects {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,4 +1,5 @@
-import { Suspense, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import "./projects.css"
 
 interface GithubData {
   name: string,
@@ -48,7 +49,11 @@ function ProjectList(
   props: { tagList: Set<string>, projects: GithubData[] }
 ) {
   const { tagList, projects } = props;
-  const [filters, setFilters] = useState<string[]>(Array.from(tagList.values()));
+  const [filters, setFilters] = useState<string[]>([]);
+
+  useEffect(() => {
+    setFilters(Array.from(tagList.values()))
+  }, [tagList])
 
   const toggleFilter = (f: string) => {
     console.log(filters, f, filters.indexOf(f))
@@ -61,7 +66,7 @@ function ProjectList(
   return (
     <>
       <p>
-        Tags: {
+        Filter: {
           Array.from(tagList).map(
             tag => <button
               key={tag}
@@ -73,11 +78,17 @@ function ProjectList(
         |
         <button className="tag" onClick={() => { setFilters([]) }}>clear tags</button>
       </p>
-      <div className="row">
+      <div className="projects">
         {projects.filter(project => filters.indexOf(project.language.toLowerCase()) > -1).map((project: GithubData) => <Card key={project.name} {...project} />)}
       </div>
     </>
   )
+}
+
+function Description(props: { children: JSX.Element[] }) {
+  return <div className="description">
+    {...props.children}
+  </div>
 }
 
 function App() {
@@ -105,6 +116,7 @@ function App() {
   return (
     <div>
       <h1>Krishna Sivakumar</h1>
+
       <p>
         <a href="mailto:krishnasivaprogrammer@gmail.com">Email</a>
         <b> | </b>
@@ -112,29 +124,25 @@ function App() {
         <b> | </b>
         <a href="https://www.linkedin.com/in/krishna-sivakumar-723b621a3" target="blank">LinkedIn</a>
       </p>
-      <p>Hey! I'm Krishna Sivakumar, a {age} year old student who loves to code and talk about it!</p>
-      <p>I mainly use Python for everyday scripts and quick projects, and have a few websites to my name.</p>
-      <p>I'm interested in systems software, distributed systems and web development, but I have the most experience with the last one :P</p>
-      <br />
 
-      <h2
-        style={{
-          marginTop: "-0.1em"
-        }}
-      >
-        Projects (stuff I've made)
+      <Description>
+        <p>Hey! I'm Krishna Sivakumar, a {age} year old student who loves to code and talk about it!</p>
+        <p>I mainly use Python for everyday scripts and quick projects, and have a few websites to my name.</p>
+        <p>I'm interested in systems software, distributed systems and web development, but I have the most experience with the last one :P</p>
+      </Description>
+
+      <h2 className="projects_header">
+        Projects
         <small
           style={{ cursor: "pointer" }}
           onClick={() => { setProjectIsOpen(!projectIsOpen) }}
         >
-          [&#8595;]
+          [&darr;]
         </small>
       </h2>
 
       <div className="collapsible" data-collapsed={projectIsOpen ? "" : "collapsed"}>
-        <Suspense fallback={<p>Loading projects...</p>}>
-          <ProjectList projects={projects} tagList={tagList} />
-        </Suspense>
+        <ProjectList projects={projects} tagList={tagList} />
       </div>
 
     </div >
