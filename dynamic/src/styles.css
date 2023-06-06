@@ -7,6 +7,7 @@
   --exp-fill: #333;
   --tag-color: #444;
   --card-shadow: rgb(0, 0, 0, 0.3);
+  --tag-active-color: #113;
 }
 
 [data-theme="dark"] {
@@ -16,6 +17,7 @@
   --exp-fill: white;
   --tag-color: white;
   --card-shadow: #5f6368;
+  --tag-active-color: #113;
 }
 
 body {
@@ -29,6 +31,10 @@ body {
   color: var(--text-color);
 }
 
+.description {
+  margin-bottom: 3rem;
+}
+
 h3 {
   text-transform: capitalize;
 }
@@ -37,15 +43,6 @@ h3 {
 
 hr {
   border: 1px solid var(--hr-color);
-}
-
-circle {
-  stroke: var(--exp-fill);
-}
-
-circle.inner,
-circle.tail {
-  fill: var(--exp-fill);
 }
 
 #color-switch {
@@ -81,6 +78,21 @@ a {
   text-decoration: none;
 }
 
+@keyframes glow {
+  from {
+    text-shadow: 0 0 0 rgb(94, 149, 252);
+  }
+
+  to {
+    text-shadow: 0 0 10px rgb(94, 149, 252);
+  }
+}
+
+a:hover {
+  text-shadow: 0 0 10px rgb(94, 149, 252);
+  animation: glow 0.5s;
+}
+
 @keyframes fadein {
   from {
     opacity: 0;
@@ -105,62 +117,6 @@ a {
   }
 }
 
-.card {
-  padding: 0.5rem;
-  padding-top: 0;
-  border: 1px solid #5f6368;
-  margin: 1rem;
-  border-radius: 5px;
-  width: 17rem;
-  height: fit-content;
-  background: transparent;
-
-  box-shadow: 2px 2px 0px 0px var(--card-shadow);
-}
-
-.card a {
-  color: rgb(94, 149, 252);
-  text-decoration: none;
-}
-
-.tag {
-  border: 1px solid #5f6368;
-  border-radius: 3px;
-  color: var(--tag-color);
-  background: none;
-  font-family: "Courier New", Courier, monospace;
-  text-transform: uppercase;
-  font-size: 0.7rem;
-  margin-top: 0.5em;
-  margin-left: 0.5em;
-  padding: 0.2rem;
-}
-
-.tag_active {
-  border: 1px solid #5f6368;
-  border-radius: 3px;
-  color: var(--background-color);
-  font-weight: bold;
-  background: #5f6368;
-  font-family: "Courier New", Courier, monospace;
-  text-transform: uppercase;
-  font-size: 0.7rem;
-  margin-top: 0.5em;
-  margin-left: 0.5em;
-  padding: 0.2rem;
-}
-
-.preview {
-  float: right;
-  cursor: pointer;
-}
-
-.row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
 .collapsible {
   transition: transform 0.1s ease 0s;
   transform-origin: top;
@@ -170,42 +126,4 @@ a {
   transform: scaleY(0);
   transform-origin: top;
   max-height: 0;
-}
-
-#experience-row {
-  list-style: none;
-}
-
-#experience-row>li {
-  position: relative;
-  margin: 0;
-  padding-bottom: 1em;
-  padding-left: 20px;
-}
-
-#experience-row>li:before {
-  content: "";
-  width: 2px;
-  background-color: var(--exp-fill);
-  position: absolute;
-  top: 10px;
-  bottom: -3px;
-  left: 5px;
-}
-
-#experience-row>li.tail::before {
-  content: none;
-}
-
-#experience-row>li>* {
-  margin-left: 1em;
-}
-
-#experience-row>li h2 {
-  margin-top: -1em;
-}
-
-#experience-row-div {
-  margin-left: 2em;
-  margin-bottom: -1em;
 }
