@@ -22,7 +22,7 @@
 
 body {
   margin: 3.5rem auto;
-  max-width: 45rem;
+  max-width: 50vw;
   font-family: "Courier New", Courier, monospace;
   animation: fadein 0.5s;
   height: fit-content;
@@ -105,16 +105,27 @@ a:hover {
 
 /*For Phones*/
 @media (max-width: 680px) {
-  body {
-    max-width: 20rem;
-  }
+    :root {
+        font-size: 14px;
+    }
+
+    body {
+        max-width: 90vw;
+    }
 }
 
 /*For Tablets*/
-@media (max-width: 809px) and (min-width: 681px) {
+@media (max-width: 768px) and (min-width: 680px) {
   body {
-    max-width: 31rem;
+    max-width: 50vw;
   }
+}
+
+/*Small Laptops*/
+@media (min-width: 768px) and (max-width: 1024px) {
+    body {
+        max-width: 75vw;
+    }
 }
 
 .collapsible {
